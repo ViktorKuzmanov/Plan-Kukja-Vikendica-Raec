@@ -1,0 +1,4 @@
+.DS_Store
+# raw phone photos and originals stay private (not published)
+data/
+.claude/

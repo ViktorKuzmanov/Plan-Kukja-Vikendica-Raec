@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="mk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Викендичка — 3Д план</title>
+<link rel="stylesheet" href="src/style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+</head>
+<body>
+<canvas id="scene"></canvas>
+<div id="labels"></div>
+
+<aside id="panel">
+  <header>
+    <h1 id="title"></h1>
+    <div class="row">
+      <div class="seg" id="lang">
+        <button data-lang="mk">МК</button><button data-lang="en">EN</button>
+      </div>
+      <button id="collapse" aria-label="menu">☰</button>
+    </div>
+  </header>
+
+  <div id="panel-body">
+    <section>
+      <h2 data-i18n="views"></h2>
+      <div class="grid">
+        <button data-view="overview" data-i18n="viewOverview"></button>
+        <button data-view="top" data-i18n="viewTop"></button>
+        <button data-view="entrance" data-i18n="viewEntrance"></button>
+        <button data-view="terrace" data-i18n="viewTerrace"></button>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="show"></h2>
+      <label class="switch"><input type="checkbox" id="t-roof" checked><span data-i18n="roof"></span></label>
+      <label class="switch"><input type="checkbox" id="t-planned" checked><span data-i18n="planned"></span></label>
+      <label class="switch"><input type="checkbox" id="t-labels" checked><span data-i18n="labels"></span></label>
+      <label class="switch"><input type="checkbox" id="t-boundary" checked><span data-i18n="boundary"></span></label>
+    </section>
+
+    <section>
+      <h2 data-i18n="layout"></h2>
+      <label class="switch"><input type="checkbox" id="t-edit"><span data-i18n="edit"></span></label>
+      <div id="edit-box" hidden>
+        <p class="hint" data-i18n="editHint"></p>
+        <div id="sel" hidden>
+          <strong id="sel-name"></strong>
+          <span id="sel-pos"></span>
+          <div class="grid">
+            <button id="rot-l">⟲ 5°</button>
+            <button id="rot-r">⟳ 5°</button>
+          </div>
+        </div>
+        <div class="grid">
+          <button id="copy" data-i18n="copy"></button>
+          <button id="reset" data-i18n="reset"></button>
+        </div>
+        <textarea id="export" readonly hidden rows="6"></textarea>
+        <p class="hint" data-i18n="localNote"></p>
+      </div>
+    </section>
+
+    <section class="legend">
+      <span><i class="dot built"></i><span data-i18n="built"></span></span>
+      <span><i class="dot planned"></i><span data-i18n="plannedTag"></span></span>
+    </section>
+    <p class="hint" data-i18n="help"></p>
+  </div>
+</aside>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
